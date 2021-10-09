@@ -2,5 +2,5 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def inicio(request):
-    return HttpResponse("pagina empresa")
+    return render( request,'empresa/index.html')
 
