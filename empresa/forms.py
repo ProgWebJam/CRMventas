@@ -2,6 +2,7 @@ from django import forms
 from .models import Empresa
 
 class FormularioEmpresa(forms.ModelForm):
+
     class Meta:
         model = Empresa
         fields = (

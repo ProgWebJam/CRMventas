@@ -5,12 +5,11 @@ from empresa.models import Empresa
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/acceder')
-def inicio(request):
+def lista_empresa(request):
     empresas = Empresa.objects.all()
     return render( request,'empresa/index.html' , {"empresas":empresas})
 
 @login_required(login_url='/accounts/acceder')
-
 def crear_empresa(request):
     if request.method == "POST":
         form = FormularioEmpresa(request.POST, request.FILES)
