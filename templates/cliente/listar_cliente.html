@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Listar Clientes {% endblock %}
+
+{% block content %}
+
+    <H1>Clientes</H1>
+<hr />
+<div class="row">
+
+    <!-- articulos -->
+    <div class="col-12 m-2">
+        <div class="row">
+            {% for cliente in clientes %}
+                <div class="col-md-3 col-sm-12 col-lg-4 pb-3">
+                    <div class="card">
+                        <img src="{{ cliente.image.url }}" height="300" class="card-img-top" alt="{{ cliente.nom_clientel }}" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cliente.nom_cliente}}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-success"> +Oportunidad</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

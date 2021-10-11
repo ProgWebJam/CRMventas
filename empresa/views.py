@@ -5,9 +5,9 @@ from empresa.models import Empresa
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/acceder')
-def lista_empresa(request):
+def listar_empresa(request):
     empresas = Empresa.objects.all()
-    return render( request,'empresa/index.html' , {"empresas":empresas})
+    return render( request,'empresa/listar_empresa.html' , {"empresas":empresas})
 
 @login_required(login_url='/accounts/acceder')
 def crear_empresa(request):

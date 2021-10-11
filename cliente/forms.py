@@ -18,6 +18,7 @@ class FormularioCliente(forms.ModelForm):
             'correo',
             'web',
             'pais',
+            'image'
 
         )
 

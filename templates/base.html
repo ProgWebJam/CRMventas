@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/">CRMventas</a>
         <button
             class="navbar-toggler"
@@ -39,15 +39,39 @@
                         <li class="nav-item">
                             <a class="nav-link" href="">Hola {{ user.username }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'crear_empresa' %}">Nueva Empresa</a>
-                        </li>
+
+
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrar</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'crear_empresa' %}">Nueva Empresa</a>
+                                <a class="dropdown-item" href="{% url 'crear_cliente' %}">Nuevo Cliente</a>
+                                <a class="dropdown-item" href="{% url 'crear_contacto' %}">Nuevo Contacto</a>
+                                <a class="dropdown-item" href="{% url 'crear_oportunidad' %}">Nueva Oportunidad negocio</a>
+
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </div>
+
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="{% url 'empresa' %}">Todas las Empresa</a>
+                                <a class="dropdown-item" href="{% url 'listar_cliente' %}">Todos los Cliente</a>
+                                <a class="dropdown-item" href="{% url 'listar_contacto' %}">Todos los Contacto</a>
+                                <a class="dropdown-item" href="{% url 'listar_oportunidad' %}">Todas las Oportunidad negocio</a>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </div>
+
                         <li class="nav-item">
                             <a class="nav-link" href="">Mi Empresa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'salir' %}">Cerrar Sesion</a>
                         </li>
+
+
             {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'acceder' %}">Acceder</a>
@@ -80,7 +104,7 @@
         {% endblock %}
     </div>
 
-    <script src="{% static 'js/jquery-slim.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.5.0.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 

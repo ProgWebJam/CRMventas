@@ -9,10 +9,11 @@ class Contacto(models.Model):
     telefono = models.IntegerField(default=1)
     correo = models.EmailField(max_length=300)
     celular = models.IntegerField(default=1)
+    image = models.ImageField(upload_to='contacto/', blank=True)
 
     def __str__(self):
 
-        return self.nombre
+        return self.nombre + " " + self.apellido
 
 
     class Meta:

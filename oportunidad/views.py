@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from oportunidad.forms import FormularioOportunidad
 from django.contrib import messages
@@ -6,8 +5,11 @@ from oportunidad.models import Oportunidad
 from django.contrib.auth.decorators import login_required
 
 
-def inicio(request):
-    return HttpResponse("pagina oportunidad")
+@login_required(login_url='/accounts/acceder')
+def listar_oportunidad(request):
+    oportunidades = Oportunidad.objects.all()
+    return render( request, 'oportunidad/listar_oportunidad.html', { "oportunidades": oportunidades })
+
 
 @login_required(login_url='/accounts/acceder')
 def crear_oportunidad(request):

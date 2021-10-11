@@ -1,12 +1,14 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from cliente.forms import FormularioCliente
 from django.contrib import messages
 from cliente.models import Cliente
 from django.contrib.auth.decorators import login_required
 
-def inicio(request):
-    return HttpResponse("pagina cliente")
+@login_required(login_url='/accounts/acceder')
+def listar_cliente(request):
+    clientes = Cliente.objects.all()
+    return  render(request,'cliente/listar_cliente.html',{"clientes":clientes})
+
 
 @login_required(login_url='/accounts/acceder')
 def crear_cliente(request):

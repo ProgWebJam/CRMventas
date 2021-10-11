@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Listar Contacto {% endblock %}
+
+{% block content %}
+
+<H1>Contactos</H1>
+<hr />
+
+<div class="row">
+
+    <div class="col-12 m-2">
+        <div class="row">
+            {% for contacto in contactos %}
+                <div class="col-md-3 col-sm-12 col-lg-4 pb-3">
+                    <div class="card">
+                        <img src="{{ contacto.image.url }}" height="300" class="card-img-top" alt="{{ contacto.nombre }}" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ contacto }}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-success"> +Oportunidad</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

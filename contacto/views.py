@@ -1,12 +1,13 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from contacto.forms import FormularioContacto
 from django.contrib import messages
 from contacto.models import Contacto
 from django.contrib.auth.decorators import login_required
 
-def inicio(request):
-    return HttpResponse("pagina contacto")
+@login_required(login_url='/accounts/acceder')
+def listar_contacto(request):
+    contactos = Contacto.objects.all()
+    return render(request, 'contacto/listar_contacto.html' , {"contactos":contactos})
 
 
 @login_required(login_url='/accounts/acceder')

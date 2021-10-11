@@ -14,6 +14,7 @@ class Cliente (models.Model):
     web = models.URLField(max_length=200)
     pais = models.ForeignKey(Pais, on_delete=models.CASCADE, null=True, blank=True)
     #contacto = models.ForeignKey(Pais, on_delete=models.CASCADE, null=True, blank=True)
+    image = models.ImageField(upload_to='cliente/', blank=True)
 
 
     def __str__(self):

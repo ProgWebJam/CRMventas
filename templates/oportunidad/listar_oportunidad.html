@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Listar Oportunidad de negocio {% endblock %}
+
+{% block content %}
+
+<H1>Oportunidades de Negocio</H1>
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr class="table-info ">
+      <th scope="col">Empresa</th>
+      <th scope="col">Contacto</th>
+      <th scope="col">Nombre de la oportunidad</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for oportunidad in oportunidades %}
+    <tr>
+      <th scope="row">{{ oportunidad.empresa }}</th>
+      <td>{{ oportunidad.contacto }}</td>
+      <td>{{ oportunidad.nombre }}</td>
+      <td>{{ oportunidad.monto }}</td>
+      <td>{{ oportunidad.get_estado_display }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}

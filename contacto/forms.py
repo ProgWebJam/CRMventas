@@ -14,4 +14,5 @@ class FormularioContacto(forms.ModelForm):
             'telefono',
             'correo',
             'celular',
+            'image'
         )
