@@ -29,3 +29,28 @@ def crear_oportunidad(request):
     form = FormularioOportunidad()
     return render (request, "oportunidad/crear_oportunidad.html", {"form":form})
 
+
+@login_required(login_url='/accounts/acceder')
+def editar_oportunidad(request, id_oportunidad):
+    oportunidad = Oportunidad.objects.get(id= id_oportunidad)
+    if request.method == 'GET':
+        form = FormularioOportunidad(instance=oportunidad)
+    else:
+        form = FormularioOportunidad(request.POST, instance=oportunidad)
+        if form.is_valid():
+            form.save()
+        return redirect('oportunidad')
+    return render (request, 'oportunidad/oportunidad_form.html', {'form':form})
+
+
+
+@login_required(login_url='/accounts/acceder')
+def empresa_delete(request, id_oportunidad):
+    oportunidad = Oportunidad.objects.get(id= id_oportunidad)
+    if request.method == 'POST':
+        oportunidad.delete()
+        return redirect('oportunidad')
+    return render(request, 'oportunidad/oportunidad_delete.html', {'oportunidad': oportunidad})
+
+
+

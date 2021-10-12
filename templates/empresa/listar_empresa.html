@@ -19,7 +19,13 @@
                             <h5 class="card-title">{{ empresa.nom_comercial}}</h5>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="#" class="btn btn-success"> +Oportunidad</a>
+                            <a href="{% url 'crear_oportunidad' %}" class="btn btn-success"> +Oportunidad</a>
+
+                        {% if empresa.propietario == user %}
+                            <a href="{% url 'actualizar_empresa' empresa.id %}" class="btn btn-secondary"> editar </a>
+                            <a href="{% url 'eliminar_empresa' empresa.id %}" class="btn btn-danger"> eliminar </a>
+                        {% endif %}
+
                         </div>
                     </div>
                 </div>

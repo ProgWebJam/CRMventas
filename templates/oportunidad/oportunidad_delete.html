@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Eliminar Oportunidad {% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+    <H1>Eliminar Oportunidad</H1>
+    <hr />
+
+<br>
+
+<form action="" method="post" class="bt-2">
+
+    {% csrf_token %}
+
+
+    <div class="card">
+        <div class="card-header bg-warning text-white">
+          <h4>Alerta</h4>
+        </div>
+        <div class="card-body">
+          <h3 class="card-text">Esta seguro de eliminar la oportunidad de negocio : {{ oportunidad.nombre }} de la aplicación ?</h3>
+          <button class="btn btn-danger" type="submit" value="confirmacion">Confirmar</button>
+        </div>
+      </div>
+
+
+</form>
+<br>
+
+{% endblock %}
