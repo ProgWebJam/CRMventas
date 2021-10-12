@@ -8,6 +8,7 @@ class FormularioContacto(forms.ModelForm):
         model = Contacto
 
         fields = (
+            'usuario_contacto',
             'cliente',
             'nombre',
             'apellido',

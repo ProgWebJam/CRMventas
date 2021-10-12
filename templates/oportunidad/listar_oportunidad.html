@@ -28,7 +28,7 @@
       <td>{{ oportunidad.monto }}</td>
       <td>{{ oportunidad.get_estado_display }}</td>
       <th scope="col">
-        {% if oportunidad.empresa.propietario == user or oportunidad.contacto == user %}
+        {% if oportunidad.empresa.propietario == user or oportunidad.usuario_contacto == user %}
           <a href="{% url 'actualizar_oportunidad' oportunidad.id %}" class="btn btn-secondary"> editar </a>
           <a href="{% url 'eliminar_oportunidad' oportunidad.id %}" class="btn btn-danger"> eliminar </a>
         {% endif %}
